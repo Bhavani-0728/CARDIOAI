@@ -1,0 +1,63 @@
+# ------------------------------
+# Python
+# ------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+ENV/
+
+# ------------------------------
+# Model Files (Do NOT upload)
+# ------------------------------
+models/best_model.pkl
+models/*.pkl
+
+# If you want to ignore entire models folder:
+models/
+
+# ------------------------------
+# Data Files
+# ------------------------------
+data/raw/
+data/processed/
+*.csv
+
+# If dataset is small and public, remove above lines
+
+# ------------------------------
+# Jupyter Notebooks Checkpoints
+# ------------------------------
+.ipynb_checkpoints/
+
+# ------------------------------
+# Streamlit
+# ------------------------------
+.streamlit/secrets.toml
+
+# ------------------------------
+# Logs
+# ------------------------------
+logs/
+*.log
+
+# ------------------------------
+# OS Files
+# ------------------------------
+.DS_Store
+Thumbs.db
+
+# ------------------------------
+# VS Code / IDE
+# ------------------------------
+.vscode/
+.idea/
+
+# ------------------------------
+# Temporary Files
+# ------------------------------
+*.tmp
+*.bak
