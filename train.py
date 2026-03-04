@@ -9,12 +9,19 @@ def main():
     os.makedirs("models", exist_ok=True)
     os.makedirs("data/processed", exist_ok=True)
 
+    # Load raw dataset
     df = load_data("data/raw/cardio_data.csv")
+
+    # Clean dataset
     df = clean_data(df)
+
+    # Create new features
     df = create_features(df)
 
+    # Save processed dataset
     df.to_csv("data/processed/processed_data.csv", index=False)
 
+    # Train model
     train_model(df)
 
 
