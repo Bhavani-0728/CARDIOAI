@@ -71,11 +71,26 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+MODEL_PATH = "models/best_model.pkl"
+FEATURE_PATH = "models/feature_columns.json"
+
+
 @st.cache_resource
 def load_model():
-    model = joblib.load("models/best_model.pkl")
 
-    with open("models/feature_columns.json") as f:
+    # train model if missing
+    if not os.path.exists(MODEL_PATH):
+        st.warning("Model not found. Training model...")
+        subprocess.run(["python", "train.py"])
+
+    # check again
+    if not os.path.exists(MODEL_PATH):
+        st.error("Model training failed. Model file still missing.")
+        st.stop()
+
+    model = joblib.load(MODEL_PATH)
+
+    with open(FEATURE_PATH) as f:
         feature_columns = json.load(f)
 
     return model, feature_columns
